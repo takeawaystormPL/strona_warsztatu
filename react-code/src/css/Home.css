@@ -1,7 +1,0 @@
-#home{
-    background: url("../resources/warsztatZdjecie.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        min-height:100vh;
-}
