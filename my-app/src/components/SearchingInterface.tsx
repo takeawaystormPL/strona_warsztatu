@@ -1,6 +1,5 @@
+import { SearchingInterfaceProps, Searching } from "../components/Types";
 import searchIcon from "../resources/searchIcon.svg";
-import { SearchingInterfaceProps } from "../components/Types";
-import { Searching } from "../components/Types";
 export default function SearchingInterface({
   filtersValue,
   changeFiltersValue,

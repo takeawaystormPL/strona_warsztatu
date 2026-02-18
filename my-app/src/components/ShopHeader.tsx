@@ -1,8 +1,8 @@
+import "../css/header.css";
+import { useRef } from "react";
 import pusteLogo from "../resources/logo_bez_tla(1).png";
 import shoppingCart from "../resources/shoppingCart.svg";
 import userIcon from "../resources/personIcon.svg";
-import "../css/header.css";
-import { useRef } from "react";
 function showWindow(ref: React.RefObject<HTMLDivElement | null>) {
   ref.current!.classList.toggle("invisible");
 }
@@ -11,7 +11,6 @@ export default function ShopHeader(props: {
   username?: string;
   email?: string;
 }) {
-  console.log(props.username);
   const windowRef = useRef<HTMLDivElement>(null);
   return (
     <header id="shopHeader">
@@ -25,7 +24,7 @@ export default function ShopHeader(props: {
         <a href="/store?searchedCategory=filtry_oleju">Filtry oleju</a>
         <a href="/store?searchedCategory=filtry_paliwa">Filtry paliwa</a>
         <a href="/store?searchedCategory=oleje">Oleje</a>
-        {props.username == "admin" && <a href="/addProduct">Dodaj produkt</a>}
+        {props.username === "admin" && <a href="/addProduct">Dodaj produkt</a>}
       </div>
       <div id="shoppingIcons">
         {props.isLogged ? (

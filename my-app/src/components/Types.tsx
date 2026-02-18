@@ -66,3 +66,8 @@ export type AddProduct = {
   productManufacturer: string;
   productForWhichCars: string;
 };
+export enum Stages {
+  checkUsername = "checkUsername",
+  checkRecoveryCode = "recoveryCode",
+  setNewPassword = "setNewPassword",
+}

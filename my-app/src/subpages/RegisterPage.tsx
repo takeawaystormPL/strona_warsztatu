@@ -14,29 +14,6 @@ export default function RegisterPage() {
   );
 }
 
-async function submitRegisterForm(
-  e: React.SyntheticEvent,
-  registerData: RegisterData,
-  setErrorParagraph: React.Dispatch<React.SetStateAction<string>>
-) {
-  e.preventDefault();
-  try {
-    const { message, isValid } = validateLoginData(registerData);
-    if (!isValid) throw new Error(message);
-    const response = await fetch("http://localhost:8000/registerUser", {
-      method: "POST",
-      body: JSON.stringify(registerData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    if (!response.ok) throw new Error("Nie udało się wykonać requesta");
-    return (window.location.href = "/loginPage");
-  } catch (error) {
-    if (typeof error == "string") setErrorParagraph(error);
-    else if (error instanceof Error) setErrorParagraph(error.message);
-  }
-}
 function Form() {
   const startsWithLetter = useRef<HTMLImageElement>(null),
     hasEnoughCharacters = useRef<HTMLImageElement>(null),
@@ -48,31 +25,10 @@ function Form() {
     email: "",
     password: "",
   });
-  function checkIfValid(
-    data: RegisterData,
-    refs: React.RefObject<HTMLImageElement | null>[]
-  ) {
-    const usernameRegex = /\b(?![#._,])[a-zA-Z0-9#._]/;
-    if (!usernameRegex.test(data.username))
-      return (refs[1].current!.src = NotChecked);
-    refs[1].current!.src = Checked;
-    console.log(data.password.length);
-    const passwordRegexes = [/[A-Z]/, /[\W]/, /[^\s]{12,}/];
-    for (let i = 0; i < 3; i++) {
-      if (!passwordRegexes[i].test(data.password))
-        refs[i + 2].current!.src = NotChecked;
-      else refs[i + 2].current!.src = Checked;
-    }
-    if ((data as RegisterData).email !== undefined) {
-      const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
-      if (!emailRegex.test((data as RegisterData).email))
-        refs[0].current!.src = NotChecked;
-      else refs[0].current!.src = Checked;
-    }
-  }
+
   function changeState(
     e: React.SyntheticEvent,
-    changeRegisterData: React.Dispatch<React.SetStateAction<RegisterData>>
+    changeRegisterData: React.Dispatch<React.SetStateAction<RegisterData>>,
   ) {
     const target = e.target as HTMLInputElement;
     changeRegisterData((prev) => {
@@ -161,4 +117,48 @@ function Form() {
       <input type="submit" value="Zarejestruj" />
     </form>
   );
+}
+async function submitRegisterForm(
+  e: React.SyntheticEvent,
+  registerData: RegisterData,
+  setErrorParagraph: React.Dispatch<React.SetStateAction<string>>,
+) {
+  e.preventDefault();
+  try {
+    const { message, isValid } = validateLoginData(registerData);
+    if (!isValid) throw new Error(message);
+    const response = await fetch("http://localhost:8000/registerUser", {
+      method: "POST",
+      body: JSON.stringify(registerData),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    if (!response.ok) throw new Error("Nie udało się wykonać requesta");
+    return (window.location.href = "/loginPage");
+  } catch (error) {
+    if (typeof error == "string") setErrorParagraph(error);
+    else if (error instanceof Error) setErrorParagraph(error.message);
+  }
+}
+function checkIfValid(
+  data: RegisterData,
+  refs: React.RefObject<HTMLImageElement | null>[],
+) {
+  const usernameRegex = /\b(?![#._,])[a-zA-Z0-9#._]/;
+  if (!usernameRegex.test(data.username))
+    return (refs[1].current!.src = NotChecked);
+  refs[1].current!.src = Checked;
+  const passwordRegexes = [/[A-Z]/, /[\W]/, /[^\s]{12,}/];
+  for (let i = 0; i < 3; i++) {
+    if (!passwordRegexes[i].test(data.password))
+      refs[i + 2].current!.src = NotChecked;
+    else refs[i + 2].current!.src = Checked;
+  }
+  if ((data as RegisterData).email !== undefined) {
+    const emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+    if (!emailRegex.test((data as RegisterData).email))
+      refs[0].current!.src = NotChecked;
+    else refs[0].current!.src = Checked;
+  }
 }

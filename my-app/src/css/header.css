@@ -3,6 +3,44 @@
     padding:0;
     box-sizing:border-box;
 }
+header {
+    padding: 1em;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    align-items: center;
+    align-content: center;
+    font-family: "Afacad Flux", sans-serif;
+    padding-top: 0;
+}
+#shopHeader {
+    grid-template-columns: 2.1fr 2.5fr 1.5fr;
+    display: grid;
+    padding: 1em;
+    gap: 1em;
+    align-content: center;
+    align-items: center;
+}
+header #logo {
+    cursor: pointer;
+}
+header #logo a {
+    display: flex;
+    align-items: center;
+}
+header #logo h1 {
+    color: White;
+    font-family: "Afacad Flux", sans-serif;
+    text-align: left;
+    display: inline-block;
+    margin-left: .5em;
+    font-size: 2rem;
+}
+header #logo img {
+    display: inline-block;
+    width: 150px;
+    height: 80px;
+    margin-top: 1em;
+}
 #shoppingIcon{
     fill:#ffffff;
     width:35px;
@@ -10,59 +48,20 @@
     justify-self: right;
     cursor: pointer;
 }
-
-header{
-    padding:1em;
-    display:grid;
-    grid-template-columns:1.5fr 1fr;
-    align-items:center;
-    align-content:center;
-    font-family:"Afacad Flux",sans-serif;
-    padding-top:0;
-}
-#shopHeader{
-    grid-template-columns:2.1fr 2.5fr 1.5fr;
-    display:grid;
-    padding:1em;
-    gap:1em;
-    align-content:center;
-    align-items:center;
-}
-header #logo{
-    cursor:pointer;
-}
-header #logo a{
-    display:flex;
-    align-items:center;
-}
-header #logo h1{
-    color:White;
-    font-family:"Afacad Flux",sans-serif;
-    text-align:left;
-    display:inline-block;
-    margin-left:.5em;
-    font-size:2rem;
-}
-header #logo img{
-    display:inline-block;
-    width:150px;
-    height:80px;
-    margin-top:1em;
-}
-#links {
+header #links {
     display:flex;
     gap:1em;
     justify-content:right;
     padding-right:1em;
 }
-#links a{
+header #links a{
     font-size:1rem; 
 }
-#userIcon{
+header #userIcon{
     position:relative;
     cursor:pointer;
 }
-#accountDiv{
+header #accountDiv{
     display:block;
     position:absolute;
     right:0;
@@ -77,23 +76,23 @@ header #logo img{
     font-family:'Afacad Flux',sans-serif;
     z-index:1000;
 }
-#accountDiv h3{
+header #accountDiv h3{
     color:gray;
 }
-#accountDiv.invisible{
+header #accountDiv.invisible{
     display:none;
 }
-#accountDiv a{
+header #accountDiv a{
     font-size:.9rem;    
 }
-#accountDiv img{
+header #accountDiv img{
     width:70px;
     height:70px;
     display:block;
     margin-left:auto;
     margin-right:auto;
 }
-#shoppingIcons {
+header #shoppingIcons {
     display: flex;
     justify-content: right;
     align-items: center;

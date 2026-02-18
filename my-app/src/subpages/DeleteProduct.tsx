@@ -1,35 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import validateIfAdmin from "../functions/validateIfAdmin";
 import ShopHeader from "../components/ShopHeader";
-async function deleteProduct(
-  productName: string,
-  errorRef: React.RefObject<HTMLParagraphElement | null>,
-  setProductName: React.Dispatch<React.SetStateAction<string>>
-) {
-  try {
-    const response = await fetch("http://localhost:8000/deleteProduct", {
-      method: "POST",
-      body: JSON.stringify({
-        productName: productName,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    if (response.status != 200) {
-      if (response.status > 499) throw new Error("Błąd wewnętrzny serwera");
-      else {
-        const json = await response.json();
-        throw new Error(json["message"]);
-      }
-    }
-    errorRef.current!.innerText = "";
-    setProductName("");
-  } catch (e) {
-    errorRef.current!.innerText =
-      typeof e == "string" ? e : e instanceof Error ? e.message : "";
-  }
-}
+
 export default function DeleteProduct(props: {
   username: string;
   email: string;
@@ -71,4 +43,33 @@ export default function DeleteProduct(props: {
       </form>
     </div>
   );
+}
+async function deleteProduct(
+  productName: string,
+  errorRef: React.RefObject<HTMLParagraphElement | null>,
+  setProductName: React.Dispatch<React.SetStateAction<string>>,
+) {
+  try {
+    const response = await fetch("http://localhost:8000/deleteProduct", {
+      method: "POST",
+      body: JSON.stringify({
+        productName: productName,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    if (response.status > 499) throw new Error("Błąd wewnętrzny serwera");
+    else if (response.status !== 200) {
+      const json = await response.json();
+      throw new Error(json["message"]);
+    }
+    if (response.status === 200) {
+      errorRef.current!.innerText = "";
+      setProductName("");
+    }
+  } catch (e) {
+    errorRef.current!.innerText =
+      typeof e == "string" ? e : e instanceof Error ? e.message : "";
+  }
 }

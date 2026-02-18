@@ -1,14 +1,13 @@
-import lockProductAmount from "../functions/lockProductAmount";
-import ShopHeader from "../components/ShopHeader";
 import "../css/paymentPage.css";
 import { useEffect, useRef } from "react";
+import lockProductAmount from "../functions/lockProductAmount";
+import ShopHeader from "../components/ShopHeader";
 export default function PaymentFailure(props: {
   email: string;
   username: string;
   shoppingList: { productID: number; amount: number }[];
 }) {
   const errorRef = useRef<HTMLParagraphElement>(null);
-  const isRendered = useRef<boolean>(false);
   useEffect(() => {
     lockProductAmount(props.shoppingList, errorRef, false);
   }, [props.shoppingList]);

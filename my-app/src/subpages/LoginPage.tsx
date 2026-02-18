@@ -11,39 +11,7 @@ export default function LoginPage() {
     </div>
   );
 }
-async function submitLoginForm(
-  e: React.SyntheticEvent,
-  loginData: LoginData,
-  setErrorParagraph: React.Dispatch<React.SetStateAction<string>>
-) {
-  e.preventDefault();
-  try {
-    const { message, isValid } = validateLoginData(loginData);
-    if (!isValid) throw new Error(message);
-    const response = await fetch("http://localhost:8000/loginUser", {
-      method: "POST",
-      body: JSON.stringify(loginData),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    if (!response.ok) throw new Error("Nie udało się wykonać requesta");
-    return (window.location.href = "/store");
-  } catch (error) {
-    if (typeof error == "string") setErrorParagraph(error);
-    else if (error instanceof Error) setErrorParagraph(error.message);
-  }
-}
-function changeState(
-  e: React.SyntheticEvent,
-  changeLoginData: React.Dispatch<React.SetStateAction<LoginData>>
-) {
-  const target = e.target as HTMLInputElement;
-  changeLoginData((prev) => ({
-    ...prev,
-    [target.id]: target.value,
-  }));
-}
+
 function Form() {
   const [loginData, changeLoginData] = useState<LoginData>({
     username: "",
@@ -87,4 +55,37 @@ function Form() {
       <input type="submit" value="Zaloguj" />
     </form>
   );
+}
+async function submitLoginForm(
+  e: React.SyntheticEvent,
+  loginData: LoginData,
+  setErrorParagraph: React.Dispatch<React.SetStateAction<string>>,
+) {
+  e.preventDefault();
+  try {
+    const { message, isValid } = validateLoginData(loginData);
+    if (!isValid) throw new Error(message);
+    const response = await fetch("http://localhost:8000/loginUser", {
+      method: "POST",
+      body: JSON.stringify(loginData),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    if (!response.ok) throw new Error("Nie udało się wykonać requesta");
+    return (window.location.href = "/store");
+  } catch (error) {
+    if (typeof error == "string") setErrorParagraph(error);
+    else if (error instanceof Error) setErrorParagraph(error.message);
+  }
+}
+function changeState(
+  e: React.SyntheticEvent,
+  changeLoginData: React.Dispatch<React.SetStateAction<LoginData>>,
+) {
+  const target = e.target as HTMLInputElement;
+  changeLoginData((prev) => ({
+    ...prev,
+    [target.id]: target.value,
+  }));
 }

@@ -1,36 +1,9 @@
+import "../css/openedProduct.css";
 import { Product, ShoppingData } from "../components/Types";
 import { useState, useEffect, useRef } from "react";
 import ShopHeader from "../components/ShopHeader";
-import "../css/openedProduct.css";
-import { changeShoppingList } from "../functions/changeShoppingList";
 import Footer from "../components/Footer";
-async function loadProductData(
-  changeOpenedProductData: React.Dispatch<React.SetStateAction<Product>>,
-) {
-  try {
-    const url = new URL(document.URL);
-    console.log(Number(url.searchParams.get("id")));
-    const response = await fetch("http://localhost:8000/loadProducts", {
-      method: "POST",
-      body: JSON.stringify({
-        id: Number(url.searchParams.get("id")),
-      }),
-    });
-    if (!response.ok) throw new Error(await response.json());
-    const json = await response.json();
-    changeOpenedProductData(json[0]);
-    console.log(json);
-    return;
-  } catch (error) {
-    console.log(
-      typeof error == "string"
-        ? error
-        : error instanceof Error
-          ? error.message
-          : "",
-    );
-  }
-}
+
 export default function OpenedProduct(props: ShoppingData) {
   const errorRef = useRef<HTMLParagraphElement>(null);
   const [openedProductData, changeOpenedProductData] = useState<Product>({
@@ -44,13 +17,12 @@ export default function OpenedProduct(props: ShoppingData) {
     amount: 0,
   });
   useEffect(() => {
-    console.log(props.ProductInShoppingCart.length);
     loadProductData(changeOpenedProductData);
   }, []);
   return (
     <div id="openedProductContainer">
       <ShopHeader
-        isLogged={props.username != ""}
+        isLogged={props.username !== ""}
         username={props.username}
         email={props.email}
       />
@@ -98,4 +70,29 @@ export default function OpenedProduct(props: ShoppingData) {
       <Footer />
     </div>
   );
+}
+async function loadProductData(
+  changeOpenedProductData: React.Dispatch<React.SetStateAction<Product>>,
+) {
+  try {
+    const url = new URL(document.URL);
+    const response = await fetch("http://localhost:8000/loadProducts", {
+      method: "POST",
+      body: JSON.stringify({
+        id: Number(url.searchParams.get("id")),
+      }),
+    });
+    if (!response.ok) throw new Error(await response.json());
+    const json = await response.json();
+    changeOpenedProductData(json[0]);
+    return;
+  } catch (error) {
+    console.log(
+      typeof error == "string"
+        ? error
+        : error instanceof Error
+          ? error.message
+          : "",
+    );
+  }
 }

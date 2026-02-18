@@ -1,5 +1,5 @@
 import ShopHeader from "../components/ShopHeader";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ProductInShoppingCart } from "../components/Types";
 import { User } from "../components/Types";
 import Image from "../resources/mechanic_photo.jpg";
@@ -7,68 +7,7 @@ import lockProductAmount from "../functions/lockProductAmount";
 import "../css/shoppingList.css";
 import redirectToProductPage from "../functions/redirectToProductPage";
 import { changeShoppingList } from "../functions/changeShoppingList";
-async function getShoppingList(
-  productsID: { productID: number; amount: number }[],
-  setProductList: React.Dispatch<React.SetStateAction<ProductInShoppingCart[]>>,
-) {
-  try {
-    const response = await fetch("http://localhost:8000/getShoppingList", {
-      method: "POST",
-      body: JSON.stringify({
-        shoppingList: productsID,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    console.log("cos");
-    if (response.status !== 200) {
-      if (response.status >= 500) {
-        throw new Error("Błąd wewnętrzny serwera");
-      }
-      if (response.status == 204) {
-        setProductList([]);
-        return;
-      }
-      const json = await response.json();
-      throw new Error(json["Error"]);
-    }
-    const json = await response.json();
-    setProductList(json != null ? (json as ProductInShoppingCart[]) : []);
-  } catch (e) {
-    console.log(typeof e == "string" ? e : e instanceof Error ? e.message : "");
-  }
-}
 
-async function redirectToCheckout(
-  shoppingList: { productID: number; amount: number }[],
-  errorParagraph: React.RefObject<HTMLParagraphElement | null>,
-) {
-  try {
-    console.log(shoppingList);
-  } catch (e) {
-    typeof e == "string"
-      ? (errorParagraph.current!.innerText = e)
-      : e instanceof Error
-        ? (errorParagraph.current!.innerText = e.message)
-        : (errorParagraph.current!.innerText = "");
-  }
-}
-function changeAmountOfProduct(
-  setProductList: React.Dispatch<React.SetStateAction<ProductInShoppingCart[]>>,
-  productID: number,
-  amount: number,
-) {
-  return setProductList((prev) => {
-    let array = prev.filter((el) => el.ID !== productID);
-    let foundElement = prev.find((el) => el.ID === productID);
-    foundElement = {
-      ...foundElement!,
-      amount: amount,
-    };
-    return [...array, foundElement];
-  });
-}
 export default function ShoppingList(props: {
   username: string;
   email: string;
@@ -216,4 +155,66 @@ export default function ShoppingList(props: {
       </div>
     </div>
   );
+}
+async function getShoppingList(
+  productsID: { productID: number; amount: number }[],
+  setProductList: React.Dispatch<React.SetStateAction<ProductInShoppingCart[]>>,
+) {
+  try {
+    const response = await fetch("http://localhost:8000/getShoppingList", {
+      method: "POST",
+      body: JSON.stringify({
+        shoppingList: productsID,
+      }),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    console.log("cos");
+    if (response.status !== 200) {
+      if (response.status >= 500) {
+        throw new Error("Błąd wewnętrzny serwera");
+      }
+      if (response.status === 204) {
+        setProductList([]);
+        return;
+      }
+      const json = await response.json();
+      throw new Error(json["Error"]);
+    }
+    const json = await response.json();
+    setProductList(json != null ? (json as ProductInShoppingCart[]) : []);
+  } catch (e) {
+    console.log(typeof e == "string" ? e : e instanceof Error ? e.message : "");
+  }
+}
+
+async function redirectToCheckout(
+  shoppingList: { productID: number; amount: number }[],
+  errorParagraph: React.RefObject<HTMLParagraphElement | null>,
+) {
+  try {
+    console.log(shoppingList);
+  } catch (e) {
+    typeof e == "string"
+      ? (errorParagraph.current!.innerText = e)
+      : e instanceof Error
+        ? (errorParagraph.current!.innerText = e.message)
+        : (errorParagraph.current!.innerText = "");
+  }
+}
+function changeAmountOfProduct(
+  setProductList: React.Dispatch<React.SetStateAction<ProductInShoppingCart[]>>,
+  productID: number,
+  amount: number,
+) {
+  return setProductList((prev) => {
+    let array = prev.filter((el) => el.ID !== productID);
+    let foundElement = prev.find((el) => el.ID === productID);
+    foundElement = {
+      ...foundElement!,
+      amount: amount,
+    };
+    return [...array, foundElement];
+  });
 }

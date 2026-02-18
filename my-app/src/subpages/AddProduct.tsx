@@ -5,57 +5,7 @@ import {
   AddProduct as AddProductType,
   ProductTypes,
 } from "../components/Types";
-import "../css/addProduct.css";
-async function AddProductToDatabase(
-  addProductState: AddProductType,
-  errorRef: React.RefObject<HTMLParagraphElement | null>,
-  setAddProductState: React.Dispatch<React.SetStateAction<AddProductType>>
-) {
-  try {
-    const allowedTypes: string[] = [
-      "image/png",
-      "image/jpeg",
-      "image/webp",
-      "image/jfif",
-    ];
-    if (!allowedTypes.includes(addProductState.productImage.type))
-      throw new Error("Niedozwolony format miniaturki");
-    const formData = new FormData();
-    formData.set("productImage", addProductState.productImage);
-    formData.set("productName", addProductState.productName);
-    formData.set("productCategory", addProductState.productCategory);
-    formData.set("productPrice", addProductState.productPrice.toString());
-    formData.set("productManufacturer", addProductState.productManufacturer);
-    formData.set("productForWhichCars", addProductState.productForWhichCars);
-    const response = await fetch("http://localhost:8000/addProduct", {
-      method: "POST",
-      body: formData,
-      credentials: "include",
-    });
-    if (response.status !== 200) {
-      if (response.status > 499)
-        throw new Error("Błąd wewnętrzny,spróbuj ponownie później");
-      else {
-        const json = await response.json();
-        throw new Error(json["message"]);
-      }
-    }
-    setAddProductState({
-      productName: "",
-      productPrice: 0,
-      productCategory: ProductTypes.filtry_oleju,
-      productManufacturer: "",
-      productForWhichCars: "",
-      productImage: new Blob(),
-    });
-    errorRef.current!.innerText = "";
-    return true;
-  } catch (e) {
-    console.log(e);
-    errorRef.current!.innerText =
-      typeof e == "string" ? e : e instanceof Error ? e.message : "";
-  }
-}
+
 export default function AddProduct(props: { username: string; email: string }) {
   const [addProductState, setAddProductState] = useState<AddProductType>({
     productName: "",
@@ -191,7 +141,7 @@ export default function AddProduct(props: { username: string; email: string }) {
               setAddProductState((prev) => ({
                 ...prev,
                 [(e.target as HTMLSelectElement).name]: Number(
-                  (e.target as HTMLSelectElement).value
+                  (e.target as HTMLSelectElement).value,
                 ),
               }));
             }}
@@ -221,4 +171,55 @@ export default function AddProduct(props: { username: string; email: string }) {
       </form>
     </div>
   );
+}
+//Function for adding product to database
+async function AddProductToDatabase(
+  addProductState: AddProductType,
+  errorRef: React.RefObject<HTMLParagraphElement | null>,
+  setAddProductState: React.Dispatch<React.SetStateAction<AddProductType>>,
+) {
+  try {
+    const allowedTypes: string[] = [
+      "image/png",
+      "image/jpeg",
+      "image/webp",
+      "image/jfif",
+    ];
+    if (!allowedTypes.includes(addProductState.productImage.type))
+      throw new Error("Niedozwolony format miniaturki");
+    const formData = new FormData();
+    formData.set("productImage", addProductState.productImage);
+    formData.set("productName", addProductState.productName);
+    formData.set("productCategory", addProductState.productCategory);
+    formData.set("productPrice", addProductState.productPrice.toString());
+    formData.set("productManufacturer", addProductState.productManufacturer);
+    formData.set("productForWhichCars", addProductState.productForWhichCars);
+    const response = await fetch("http://localhost:8000/addProduct", {
+      method: "POST",
+      body: formData,
+      credentials: "include",
+    });
+    if (response.status !== 200) {
+      if (response.status > 499)
+        throw new Error("Błąd wewnętrzny,spróbuj ponownie później");
+      else {
+        const json = await response.json();
+        throw new Error(json["message"]);
+      }
+    }
+    setAddProductState({
+      productName: "",
+      productPrice: 0,
+      productCategory: ProductTypes.filtry_oleju,
+      productManufacturer: "",
+      productForWhichCars: "",
+      productImage: new Blob(),
+    });
+    errorRef.current!.innerText = "";
+    return true;
+  } catch (e) {
+    console.log(e);
+    errorRef.current!.innerText =
+      typeof e == "string" ? e : e instanceof Error ? e.message : "";
+  }
 }
