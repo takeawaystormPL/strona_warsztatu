@@ -2,6 +2,7 @@ import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./subpages/Home";
 import Shop from "./subpages/Shop";
+import Cos from "./components/Cos";
 import "./css/App.css";
 import "./css/header.css";
 import "./css/content.css";
