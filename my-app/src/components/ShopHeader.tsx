@@ -1,7 +1,6 @@
-import tools from "../resources/construction_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.svg";
 import pusteLogo from "../resources/logo_bez_tla(1).png";
-import shoppingCart from "../resources/shopping_cart_32dp_E3E3E3_FILL0_wght400_GRAD0_opsz40.svg";
-import userIcon from "../resources/person_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
+import shoppingCart from "../resources/shoppingCart.svg";
+import userIcon from "../resources/personIcon.svg";
 import "../css/header.css";
 import { useRef } from "react";
 function showWindow(ref: React.RefObject<HTMLDivElement | null>) {

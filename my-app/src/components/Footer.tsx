@@ -1,7 +1,7 @@
 import "../css/footer.css";
-import phoneIcon from "../resources/call_28dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
-import mailIcon from "../resources/mail_28dp_E3E3E3_FILL0_wght400_GRAD0_opsz24.svg";
-import locationIcon from "../resources/location_on_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
+import phoneIcon from "../resources/callIcon.svg";
+import mailIcon from "../resources/mailIcon.svg";
+import locationIcon from "../resources/locationIcon.svg";
 export default function Footer(props: {}) {
   return (
     <footer>

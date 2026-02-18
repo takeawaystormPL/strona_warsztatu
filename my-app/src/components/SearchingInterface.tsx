@@ -1,4 +1,4 @@
-import searchIcon from "../resources/search_28dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg";
+import searchIcon from "../resources/searchIcon.svg";
 import { SearchingInterfaceProps } from "../components/Types";
 import { Searching } from "../components/Types";
 export default function SearchingInterface({
@@ -67,7 +67,7 @@ export default function SearchingInterface({
 }
 function updateState(
   event: React.SyntheticEvent,
-  stateSetter: React.Dispatch<React.SetStateAction<Searching>>
+  stateSetter: React.Dispatch<React.SetStateAction<Searching>>,
 ) {
   const element: HTMLInputElement | HTMLSelectElement =
     event.currentTarget.id == "searchedTitle"
