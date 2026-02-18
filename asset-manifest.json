@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.f855e6bc.css",
-    "main.js": "/react-gh-pages/static/js/main.c666739f.js",
-    "static/js/453.fd2f0c4a.chunk.js": "/react-gh-pages/static/js/453.fd2f0c4a.chunk.js",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f855e6bc.css.map": "/react-gh-pages/static/css/main.f855e6bc.css.map",
-    "main.c666739f.js.map": "/react-gh-pages/static/js/main.c666739f.js.map",
-    "453.fd2f0c4a.chunk.js.map": "/react-gh-pages/static/js/453.fd2f0c4a.chunk.js.map"
+    "main.css": "/strona_warsztatu/static/css/main.f855e6bc.css",
+    "main.js": "/strona_warsztatu/static/js/main.a1aac71c.js",
+    "static/js/453.fd2f0c4a.chunk.js": "/strona_warsztatu/static/js/453.fd2f0c4a.chunk.js",
+    "index.html": "/strona_warsztatu/index.html",
+    "main.f855e6bc.css.map": "/strona_warsztatu/static/css/main.f855e6bc.css.map",
+    "main.a1aac71c.js.map": "/strona_warsztatu/static/js/main.a1aac71c.js.map",
+    "453.fd2f0c4a.chunk.js.map": "/strona_warsztatu/static/js/453.fd2f0c4a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.c666739f.js"
+    "static/js/main.a1aac71c.js"
   ]
 }
