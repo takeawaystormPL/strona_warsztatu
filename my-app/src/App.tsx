@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./subpages/Home";
 import Shop from "./subpages/Shop";
 import "./css/App.css";
@@ -56,7 +56,7 @@ function App() {
     verifyUser();
   }, []);
   return (
-    <Router>
+    <HashRouter>
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/" element={<Home />} />
@@ -132,7 +132,7 @@ function App() {
           }
         />
       </Routes>
-    </Router>
+    </HashRouter>
   );
 }
 export default App;
