@@ -1,0 +1,29 @@
+#companyDescription {
+    display: flex;
+    flex-direction:column;
+        flex-wrap: wrap;
+        align-items: center;
+    font-family: "Afacad Flux", sans-serif;
+    padding: 2em;
+        color: white;
+        min-height:71vh;
+}
+#companyDescription a{
+    display:inline;
+}
+#companyDescription p{
+    max-width:90ch;
+    padding-top:1em;
+}
+ul{
+    list-style-type: none;
+    padding:1em;
+}
+li{
+   text-align:left;
+   font-weight:800;
+   font-size:1.2rem;
+}
+ul li::before{
+    content:"✅"
+}

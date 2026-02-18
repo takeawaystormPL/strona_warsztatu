@@ -1,0 +1,26 @@
+.paymentStatus{
+    position:absolute;
+    top:35%;
+    left:40%;
+    background:black;
+    color:white;
+    width:fit-content;
+    padding:1em;
+}
+.paymentStatus p{
+    margin-top:1em;
+    font-family:"Afacad Flux",sans-serif;
+    font-size:1.1rem;
+    max-width:300px;
+}
+.paymentStatus button{
+    width:300px;
+    background:green;
+    border:none;
+    border-radius:5px;
+    padding:1em;
+    margin-top:1em;
+    color:white;
+    font-size:1rem;
+    font-family:"Afacad Flux",sans-serif;
+}

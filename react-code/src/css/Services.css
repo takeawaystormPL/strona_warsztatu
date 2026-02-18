@@ -1,0 +1,40 @@
+#servicesContainer{
+    background-image: URL("../resources/dpf_machine.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    color: white;
+    font-family:"Afacad Flux",sans-serif;
+}
+#servicesContainer div#header{
+    min-height: 90vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1em;
+    font-size:1.5rem;
+}
+#servicesContainer div#header button{
+    width:200px;
+    padding:1em;
+    background:black;
+    color:white;
+    transition:all .5s ease;
+    border-radius:5px;
+    border:none;
+}
+#servicesContainer div#header button:hover{
+    background:white;
+    color:black;
+}
+#services{
+    padding:2em;
+    font-family:"Afacad Flux",sans-serif;
+}
+#services .desc{
+    font-weight:400;
+    font-size:1rem;
+}
+#services ul li{
+    margin-top:1em;
+}

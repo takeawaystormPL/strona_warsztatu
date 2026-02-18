@@ -1,0 +1,76 @@
+#productListContainer{
+    display:grid;
+    grid-template-areas:"header header"
+    "heading heading"
+    "shoppingList panel";
+}
+#productListContainer #shopHeader{
+    grid-area:header;
+}
+.productOnProductList{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:1em;
+    color:white;
+    background:black;
+    padding:1em;
+    border-radius:5px;
+}
+#productListContainer h1{
+    color:white;
+    width:100%;
+    font-family:"Afacad Flux",sans-serif;
+    color:gray;
+    text-align:center;
+    grid-area:heading;
+}
+.productOnProductList img{
+    width:100px;
+    height:100px;
+}
+.productOnProductList .productName,.productOnProductList .productPrice,.productOnProductList label{
+    font-family:"Afacad Flux",sans-serif;
+    font-size:1.3rem;
+}
+.productOnProductList #amount{
+    padding:.6em;
+    width:100px;    
+}
+.productOnProductList button{
+    padding:.7em;
+    background:rgb(135, 7, 33);
+    color:white;
+    border:none;
+    font-family:"Afacad Flux",
+        sans-serif;
+}
+#productListContainer #productList{
+    display:grid;
+    grid-auto-rows:1fr;
+    grid-area:shoppingList
+}
+#productListContainer #payment{
+    display:block;
+    background:green;
+    color:white;
+    width:200px;
+    padding:1em;
+    margin-top:1.5em;
+    margin-left:auto;
+    margin-right:auto;
+    border:none;
+}
+#shoppingListPanel{
+    width:fit-content;
+    height:fit-content;
+    padding:1em;
+    background:black;
+    color:white;
+    grid-area:panel;
+}
+#shoppingListPanel p{
+    margin-top:1em;
+    font-size: 1.2rem;
+    font-family:"Afacad Flux",sans-serif;
+}
