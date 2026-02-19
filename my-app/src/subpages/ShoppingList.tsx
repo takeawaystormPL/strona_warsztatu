@@ -170,7 +170,6 @@ async function getShoppingList(
         "Content-type": "application/json",
       },
     });
-    console.log("cos");
     if (response.status !== 200) {
       if (response.status >= 500) {
         throw new Error("Błąd wewnętrzny serwera");

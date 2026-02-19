@@ -14,7 +14,7 @@ export default function DeleteProduct(props: {
   return (
     <div>
       <ShopHeader
-        isLogged={props.username.length != 0}
+        isLogged={props.username.length !== 0}
         username={props.username}
         email={props.email}
       />

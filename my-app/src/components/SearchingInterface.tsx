@@ -69,7 +69,7 @@ function updateState(
   stateSetter: React.Dispatch<React.SetStateAction<Searching>>,
 ) {
   const element: HTMLInputElement | HTMLSelectElement =
-    event.currentTarget.id == "searchedTitle"
+    event.currentTarget.id === "searchedTitle"
       ? (event.target as HTMLInputElement)
       : (event.target as HTMLSelectElement);
   stateSetter((prev) => ({

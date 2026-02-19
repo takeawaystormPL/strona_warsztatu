@@ -12,9 +12,9 @@ export default function Header() {
         {/* <h1>Auto-serwis</h1> */}
       </div>
       <div id="links">
-        <a href="/home">O nas</a>
-        <a href="/store">Sklep</a>
-        <a href="/services">DPF</a>
+        <a href="/#/home">O nas</a>
+        <a href="/#/store">Sklep</a>
+        <a href="/#/services">DPF</a>
       </div>
     </header>
   );
