@@ -30,7 +30,8 @@ function Content() {
             <li>Wymiana oleju</li>
             <li>Naprawa klimatyzacji</li>
           </ul>
-          Przyjedź pod adres Gorzyce 268,37-204 Tryńcza a my zajmiemy się resztą
+          Przyjedź pod adres Gorzyce 268, 37-204 Tryńcza a my zajmiemy się
+          resztą
         </p>
       </div>
       <Footer />

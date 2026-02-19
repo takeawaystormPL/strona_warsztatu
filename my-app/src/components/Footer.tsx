@@ -15,7 +15,7 @@ export default function Footer(props: {}) {
         <h2>Kontakt</h2>
         <p>
           <img src={locationIcon} alt="" id="locationIcon" />
-          Gorzyce 268-37-204 Tryńcza
+          Gorzyce 268, 37-204 Tryńcza
         </p>
 
         <p>
@@ -25,7 +25,7 @@ export default function Footer(props: {}) {
         <p>
           {" "}
           <img src={phoneIcon} alt="" />
-          500631039,571804842
+          500631039, 571804842
         </p>
       </div>
     </footer>

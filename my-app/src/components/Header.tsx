@@ -6,7 +6,7 @@ export default function Header() {
       <div
         id="logo"
         onClick={() => {
-          window.location.href = "/home";
+          window.location.href = "#/home";
         }}
       >
         <img src={pusteLogo} alt="shoppingCart" />

@@ -32,7 +32,7 @@ export default function Services() {
                 co skutkuje spadkiem mocy silnika, większym spalaniem oraz
                 pojawieniem się kontrolki na desce rozdzielczej. W naszej firmie
                 stosujemy specjalną maszynę do czyszczenia filtrów DPF,która
-                skutecznie usuwa wszelkie nagromadzone zanieszyszczenia
+                skutecznie usuwa wszelkie nagromadzone zanieszyszczenia.
               </p>
             </li>
             <li>

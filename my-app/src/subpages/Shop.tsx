@@ -1,11 +1,10 @@
-import { useState, useEffect, useRef } from "react";
 import "../css/shop.css";
-import ShopHeader from "../components/ShopHeader";
 import { Searching, Product, User } from "../components/Types";
+import { useState, useEffect, useRef } from "react";
+import ShopHeader from "../components/ShopHeader";
 import SearchingInterface from "../components/SearchingInterface";
 import redirectToProductPage from "../functions/redirectToProductPage";
 import Footer from "../components/Footer";
-
 export default function Shop(props: User) {
   const [filtersValue, changeFiltersValue] = useState<Searching>({
     searchedCategory: "all",

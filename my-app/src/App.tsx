@@ -1,5 +1,4 @@
 import "./css/app.css";
-import "./css/Services.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { User } from "./components/Types";
