@@ -1,26 +1,22 @@
 {
   "files": {
-    "main.css": "/strona_warsztatu/static/css/main.35f3255b.css",
-    "main.js": "/strona_warsztatu/static/js/main.f01b5b86.js",
+    "main.css": "/strona_warsztatu/static/css/main.80a4a827.css",
+    "main.js": "/strona_warsztatu/static/js/main.c73014dd.js",
     "static/media/dpf_machine.jpg": "/strona_warsztatu/static/media/dpf_machine.422e68a9bd2c2a497a74.jpg",
     "static/media/zdjecie_warsztatu.jpg": "/strona_warsztatu/static/media/zdjecie_warsztatu.73e039725b31c2cf2ab2.jpg",
     "static/media/mechanic_photo.jpg": "/strona_warsztatu/static/media/mechanic_photo.03128df409ed868c7576.jpg",
     "static/media/tlo_sklepu.png": "/strona_warsztatu/static/media/tlo_sklepu.ed03ce21d8356d01a7bb.png",
     "static/media/logo_bez_tla(1).png": "/strona_warsztatu/static/media/logo_bez_tla(1).1e9aa1865f91f862586a.png",
     "index.html": "/strona_warsztatu/index.html",
-    "static/media/shoppingCart.svg": "/strona_warsztatu/static/media/shoppingCart.cecf99e9ee3f71c5e59ccb0fe772ce2a.svg",
-    "static/media/personIcon.svg": "/strona_warsztatu/static/media/personIcon.3769edc7ccec7e217bd1036b7cc5bfc7.svg",
-    "static/media/circle-xmark-solid.svg": "/strona_warsztatu/static/media/circle-xmark-solid.1c46934d45f4d7785e9aeddb556004a8.svg",
     "static/media/callIcon.svg": "/strona_warsztatu/static/media/callIcon.d6d4f8de75e706f849f1f4308b791a8e.svg",
     "static/media/locationIcon.svg": "/strona_warsztatu/static/media/locationIcon.5c3cb2c8299de6184a09b133286246a8.svg",
-    "static/media/circle-check-solid.svg": "/strona_warsztatu/static/media/circle-check-solid.915a0722baab36282c5cf30131c02341.svg",
     "static/media/searchIcon.svg": "/strona_warsztatu/static/media/searchIcon.0d4143223ae04fe49b996f31accb5105.svg",
     "static/media/mailIcon.svg": "/strona_warsztatu/static/media/mailIcon.7f0434c970270181a5bb397df0bd3948.svg",
-    "main.35f3255b.css.map": "/strona_warsztatu/static/css/main.35f3255b.css.map",
-    "main.f01b5b86.js.map": "/strona_warsztatu/static/js/main.f01b5b86.js.map"
+    "main.80a4a827.css.map": "/strona_warsztatu/static/css/main.80a4a827.css.map",
+    "main.c73014dd.js.map": "/strona_warsztatu/static/js/main.c73014dd.js.map"
   },
   "entrypoints": [
-    "static/css/main.35f3255b.css",
-    "static/js/main.f01b5b86.js"
+    "static/css/main.80a4a827.css",
+    "static/js/main.c73014dd.js"
   ]
 }
