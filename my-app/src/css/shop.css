@@ -51,6 +51,13 @@
 }
 #shopContainer footer{
     display:fixed;
-    bottom:0;
-    
+    bottom:0;   
+}
+@media screen and (max-width:510px){
+    #searchingDiv{
+        flex-direction: column;
+    }
+    #searchingDiv input,#searchingDiv select{
+    }
+
 }

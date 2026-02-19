@@ -5,3 +5,38 @@
         background-size: cover;
         min-height:100vh;
 }
+#home #companyDescription {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    font-family: "Afacad Flux", sans-serif;
+    padding: 2em;
+    color: white;
+    min-height: 71vh;
+}
+#home #companyDescription a {
+    display: inline;
+    color: white;
+    transition: all 0.5s ease;
+    text-decoration: none;
+}
+#home #companyDescription a:hover {
+    color: blue;
+}
+#home #companyDescription p {
+    max-width: 90ch;
+    padding-top: 1em;
+}
+#home #companyDescription ul {
+    list-style-type: none;
+    padding: 1em;
+}
+#home #companyDescription ul li {
+    text-align: left;
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+#home #companyDescription ul li::before {
+    content: "✅"
+}

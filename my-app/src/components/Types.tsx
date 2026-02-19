@@ -71,3 +71,10 @@ export enum Stages {
   checkRecoveryCode = "recoveryCode",
   setNewPassword = "setNewPassword",
 }
+export type RegisterDataRequirements = {
+  startsWithLetter: boolean;
+  hasEnoughCharacters: boolean;
+  hasSpecialCharacters: boolean;
+  hasValidFormat: boolean;
+  hasCapitalLetters: boolean;
+};

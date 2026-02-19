@@ -2,7 +2,6 @@ import Header from "../components/Header";
 import "../css/login.css";
 import { useState } from "react";
 import { LoginData } from "../components/Types";
-import validateLoginData from "../functions/checkEmail";
 export default function LoginPage() {
   return (
     <div>
@@ -63,8 +62,6 @@ async function submitLoginForm(
 ) {
   e.preventDefault();
   try {
-    const { message, isValid } = validateLoginData(loginData);
-    if (!isValid) throw new Error(message);
     const response = await fetch("http://localhost:8000/loginUser", {
       method: "POST",
       body: JSON.stringify(loginData),

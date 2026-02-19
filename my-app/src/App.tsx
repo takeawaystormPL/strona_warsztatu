@@ -1,23 +1,23 @@
-import React from "react";
+import "./css/app.css";
+import "./css/Services.css";
 import { HashRouter, Route, Routes } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { User } from "./components/Types";
 import Home from "./subpages/Home";
 import Shop from "./subpages/Shop";
-import "./css/App.css";
-import "./css/header.css";
-import "./css/content.css";
-import "./css/Services.css";
+import Services from "./subpages/Services";
 import OpenedProduct from "./subpages/OpenedProduct";
+/*
 import LoginPage from "./subpages/LoginPage";
 import RegisterPage from "./subpages/RegisterPage";
 import ResetPassword from "./subpages/ResetPassword";
-import { useEffect, useState } from "react";
-import { User } from "./components/Types";
 import ShoppingList from "./subpages/ShoppingList";
 import PaymentFailure from "./subpages/PaymentFailure";
 import PaymentSuccess from "./subpages/PaymentSuccess";
 import AddProduct from "./subpages/AddProduct";
 import DeleteProduct from "./subpages/DeleteProduct";
-import Services from "./subpages/Services";
+ */
+
 function App() {
   const [userData, setUserData] = useState<User>({
     username: "",
@@ -82,6 +82,7 @@ function App() {
             />
           }
         />
+        {/* 
         <Route path="/loginPage" element={<LoginPage />} />
         <Route path="/registerPage" element={<RegisterPage />} />
         <Route path="/resetPassword" element={<ResetPassword />} />
@@ -131,6 +132,7 @@ function App() {
             />
           }
         />
+         */}
       </Routes>
     </HashRouter>
   );

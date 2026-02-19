@@ -1,10 +1,11 @@
-import Header from "../components/Header";
+import "../css/ResetPassword.css";
 import { useState, useRef } from "react";
 import { newPassword, ResetPasswordProps, Stages } from "../components/Types";
-import checkUsername from "../functions/checkUsername";
+import Header from "../components/Header";
+import sendRecoveryCode from "../functions/sendRecoveryCode";
 import checkRecoveryCode from "../functions/checkRecoveryCode";
 import setNewPassword from "../functions/setNewPassword";
-import "../css/ResetPassword.css";
+
 export default function ResetPassword() {
   const [stage, setStage] = useState<string>(Stages.checkUsername);
   return (
@@ -21,7 +22,7 @@ function FirstStep(props: ResetPasswordProps) {
   const errorRef = useRef<HTMLParagraphElement>(null);
   async function submitForm() {
     const { error, message }: { error: boolean; message: string } =
-      await checkUsername(username);
+      await sendRecoveryCode(username);
     if (error) return (errorRef.current!.innerText = message);
     props.setStage(Stages.checkRecoveryCode);
   }

@@ -1,3 +1,4 @@
+import "../css/header.css";
 import pusteLogo from "../resources/logo_bez_tla(1).png";
 export default function Header() {
   return (

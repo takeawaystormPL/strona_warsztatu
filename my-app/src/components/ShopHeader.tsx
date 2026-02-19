@@ -1,8 +1,8 @@
 import "../css/header.css";
 import { useRef } from "react";
 import pusteLogo from "../resources/logo_bez_tla(1).png";
-import shoppingCart from "../resources/shoppingCart.svg";
-import userIcon from "../resources/personIcon.svg";
+//import shoppingCart from "../resources/shoppingCart.svg";
+//import userIcon from "../resources/personIcon.svg";
 function showWindow(ref: React.RefObject<HTMLDivElement | null>) {
   ref.current!.classList.toggle("invisible");
 }
@@ -20,22 +20,12 @@ export default function ShopHeader(props: {
         </a>
       </div>
       <div id="links">
-        <a href="/store?searchedCategory=filtry_oleju">Filtry oleju</a>
-        <a href="/store?searchedCategory=filtry_paliwa">Filtry paliwa</a>
-        <a href="/store?searchedCategory=oleje">Oleje</a>
+        <a href="#/store?searchedCategory=filtry_oleju">Filtry oleju</a>
+        <a href="#/store?searchedCategory=filtry_paliwa">Filtry paliwa</a>
+        <a href="#/store?searchedCategory=oleje">Oleje</a>
         {props.username === "admin" && <a href="/addProduct">Dodaj produkt</a>}
       </div>
-      <div id="shoppingIcons">
-        {props.isLogged ? (
-          <a href="/shoppingList">
-            <img src={shoppingCart} alt="" id="shoppingIcon" />
-          </a>
-        ) : (
-          <a>
-            <img src={shoppingCart} alt="" id="shoppingIcon" />
-          </a>
-        )}
-
+      {/* 
         <img
           src={userIcon}
           id="userIcon"
@@ -58,6 +48,7 @@ export default function ShopHeader(props: {
           </div>
         )}
       </div>
+       */}
     </header>
   );
 }
