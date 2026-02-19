@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/strona_warsztatu/static/css/main.35f3255b.css",
-    "main.js": "/strona_warsztatu/static/js/main.e95d2181.js",
+    "main.js": "/strona_warsztatu/static/js/main.f01b5b86.js",
     "static/media/dpf_machine.jpg": "/strona_warsztatu/static/media/dpf_machine.422e68a9bd2c2a497a74.jpg",
     "static/media/zdjecie_warsztatu.jpg": "/strona_warsztatu/static/media/zdjecie_warsztatu.73e039725b31c2cf2ab2.jpg",
     "static/media/mechanic_photo.jpg": "/strona_warsztatu/static/media/mechanic_photo.03128df409ed868c7576.jpg",
@@ -17,10 +17,10 @@
     "static/media/searchIcon.svg": "/strona_warsztatu/static/media/searchIcon.0d4143223ae04fe49b996f31accb5105.svg",
     "static/media/mailIcon.svg": "/strona_warsztatu/static/media/mailIcon.7f0434c970270181a5bb397df0bd3948.svg",
     "main.35f3255b.css.map": "/strona_warsztatu/static/css/main.35f3255b.css.map",
-    "main.e95d2181.js.map": "/strona_warsztatu/static/js/main.e95d2181.js.map"
+    "main.f01b5b86.js.map": "/strona_warsztatu/static/js/main.f01b5b86.js.map"
   },
   "entrypoints": [
     "static/css/main.35f3255b.css",
-    "static/js/main.e95d2181.js"
+    "static/js/main.f01b5b86.js"
   ]
 }
