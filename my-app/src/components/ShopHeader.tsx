@@ -15,9 +15,8 @@ export default function ShopHeader(props: {
   return (
     <header id="shopHeader">
       <div id="logo">
-        <a href="/store">
+        <a href="#/store">
           <img src={pusteLogo} alt="shoppingCart" />
-          <h1>DM-SERWIS</h1>
         </a>
       </div>
       <div id="links">

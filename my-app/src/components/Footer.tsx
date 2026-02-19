@@ -7,9 +7,9 @@ export default function Footer(props: {}) {
     <footer>
       <div>
         <h2>Podstrony</h2>
-        <a href="/home">O nas</a>
-        <a href="/store">Sklep</a>
-        <a href="/services">DPF</a>
+        <a href="#/home">O nas</a>
+        <a href="#/store">Sklep</a>
+        <a href="#/services">DPF</a>
       </div>
       <div>
         <h2>Kontakt</h2>
